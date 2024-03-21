@@ -4,6 +4,7 @@ use serde::{Deserialize, Serialize};
 pub struct Device {
     name: String,
     size: String,
+    mountpoints: Vec<Option<String>>,
 
     children: Option<Vec<Device>>,
 }
