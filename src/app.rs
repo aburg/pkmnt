@@ -1,5 +1,7 @@
 use std::error;
 
+use crate::lsblk::lsblk::Lsblk;
+
 /// Application result type.
 pub type AppResult<T> = std::result::Result<T, Box<dyn error::Error>>;
 
@@ -10,6 +12,8 @@ pub struct App {
     pub running: bool,
     /// counter
     pub counter: u8,
+
+    pub lsblk: Lsblk,
 }
 
 impl Default for App {
@@ -17,6 +21,7 @@ impl Default for App {
         Self {
             running: true,
             counter: 0,
+            lsblk: Lsblk::run(),
         }
     }
 }

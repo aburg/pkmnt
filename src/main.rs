@@ -1,7 +1,6 @@
 use pkmnt::app::{App, AppResult};
 use pkmnt::event::{Event, EventHandler};
 use pkmnt::handler::handle_key_events;
-use pkmnt::lsblk::lsblk::Lsblk;
 use pkmnt::tui::Tui;
 use ratatui::backend::CrosstermBackend;
 use ratatui::Terminal;
@@ -34,7 +33,6 @@ fn main() -> AppResult<()> {
     // Exit the user interface.
     tui.exit()?;
 
-    let lsblk = Lsblk::run();
-    println!("lsblk: {:?}", lsblk);
+    println!("{:?}", app.lsblk);
     Ok(())
 }
