@@ -1,10 +1,10 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Device {
     name: String,
     size: String,
     mountpoints: Vec<Option<String>>,
 
-    children: Option<Vec<Device>>,
+    pub children: Option<Vec<Device>>,
 }
