@@ -32,7 +32,5 @@ fn main() -> AppResult<()> {
 
     // Exit the user interface.
     tui.exit()?;
-
-    println!("{:?}", app.lsblk);
     Ok(())
 }

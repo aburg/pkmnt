@@ -6,11 +6,11 @@ use super::device::Device;
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Lsblk {
-    blockdevices: Vec<Device>,
+    pub blockdevices: Vec<Device>,
 }
 
 impl Lsblk {
-    pub fn run() -> Self {
+    fn run() -> Self {
         let stdout = Command::new("lsblk")
             .arg("--json")
             .output()
@@ -27,7 +27,7 @@ impl Lsblk {
         lsblk
     }
 
-    pub fn flatten_blockdevice_children(&mut self) {
+    fn flatten_blockdevice_children(&mut self) {
         self.blockdevices = self
             .blockdevices
             .iter()
@@ -36,5 +36,9 @@ impl Lsblk {
                 None => vec![device.clone()],
             })
             .collect();
+    }
+
+    pub fn devices() -> Vec<Device> {
+        Self::run().blockdevices
     }
 }
