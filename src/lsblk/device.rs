@@ -9,9 +9,3 @@ pub struct Device {
 
     pub children: Option<Vec<Device>>,
 }
-
-// impl Into<ListItem> for Device {
-//     fn into(self) -> ListItem {
-//         ListItem::new(self.name)
-//     }
-// }
